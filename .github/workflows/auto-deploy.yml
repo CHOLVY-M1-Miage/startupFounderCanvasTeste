@@ -15,26 +15,3 @@ jobs:
       run: |
         cd angular/
         npm install
-
-  build:
-    runs-on: self-hosted
-
-    steps:
-
-    - name: Compile le projet
-      run: |
-        cd angular/
-        ng build
-
-  deploy:
-    runs-on: self-hosted
-    
-    steps:
-    
-    - name: Déployer sur la production
-      if: success()
-      run: |
-        sftp startupfoundercanvas-preprod@ssh-startupfoundercanvas-preprod.alwaysdata.net << EOF
-            put -r startupFounderCanvasTeste/dist/startup-founder-canvas-client/* www/
-            quit
-        EOF
