@@ -1,0 +1,9 @@
+.angular
+.vscode
+.idea
+angular/node_modules
+angular/package-lock.json
+angular/dist
+spring-boot/package-lock.json
+spring-boot/target/*
+spring-boot/src/main/resources/application.properties
