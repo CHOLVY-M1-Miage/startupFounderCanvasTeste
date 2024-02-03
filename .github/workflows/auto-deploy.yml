@@ -13,6 +13,7 @@ jobs:
 
     - name: Installer les dépendances
       run: |
+        cd angular/
         npm install
 
   build:
@@ -22,6 +23,7 @@ jobs:
 
     - name: Compile le projet
       run: |
+        cd angular/
         ng build
 
   deploy:
