@@ -11,6 +11,9 @@ jobs:
 
     steps:
 
+    - name: Checkout du code
+      uses: actions/checkout@v2
+
     - name: Installer les dépendances
       run: |
         cd angular/
