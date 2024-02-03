@@ -1,0 +1,28 @@
+name: Mon Workflow
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+
+    - name: Installer les dépendances
+      run: |
+        #npm install
+        # Ou tout autre commande d'installation nécessaire pour votre projet
+
+    - name: Exécuter les tests
+      run: |
+        #npm test
+        # Ou tout autre commande pour exécuter vos tests
+
+    - name: Déployer sur la production
+      if: success()
+      run: |
+        # Ajoutez ici vos commandes de déploiement
+        echo teste
