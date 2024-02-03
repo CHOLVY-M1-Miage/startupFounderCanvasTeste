@@ -1,4 +1,4 @@
-name: Mon Workflow
+name: Auto_deployment_front_angular
 
 on:
   push:
@@ -6,23 +6,33 @@ on:
       - dev
 
 jobs:
-  build:
+  install:
     runs-on: self-hosted
 
     steps:
 
     - name: Installer les dépendances
       run: |
-        #npm install
-        # Ou tout autre commande d'installation nécessaire pour votre projet
+        npm install
 
-    - name: Exécuter les tests
+  build:
+    runs-on: self-hosted
+
+    steps:
+
+    - name: Compile le projet
       run: |
-        #npm test
-        # Ou tout autre commande pour exécuter vos tests
+        ng build
 
+  deploy:
+    runs-on: self-hosted
+    
+    steps:
+    
     - name: Déployer sur la production
       if: success()
       run: |
-        # Ajoutez ici vos commandes de déploiement
-        echo teste
+        sftp startupfoundercanvas-preprod@ssh-startupfoundercanvas-preprod.alwaysdata.net << EOF
+            put -r startupFounderCanvasTeste/dist/startup-founder-canvas-client/* www/
+            quit
+        EOF
