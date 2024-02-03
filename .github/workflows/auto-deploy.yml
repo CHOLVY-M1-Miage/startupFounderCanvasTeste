@@ -13,5 +13,5 @@ jobs:
 
     - name: Installer les dépendances
       run: |
-        ls
+        cd angular/
         npm install
