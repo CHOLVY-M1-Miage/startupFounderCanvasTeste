@@ -27,16 +27,14 @@ jobs:
         - name: Utiliser la clé privée
           if: success()     
           run: |
-            echo "$DEPLOY_KEY_PRIVE"
-            echo "$DEPLOY_KEY_PRIVE" > id_rsa
-            #chmod 600 id_rsa
+            echo "${{secrets.MON_SECRET }}" > id_rsa
+            chmod 600 id_rsa
 
         - name: Déployer sur la production
           if: success()  
           run: |
             ls -l
             cat id_rsa
-            cat abc
             sftp -i id_rsa startupfoundercanvas-preprod@ftp-startupfoundercanvas-preprod.alwaysdata.net << EOF
               put -r angular/dist/startup-founder-canvas-client/* www/
               quit
