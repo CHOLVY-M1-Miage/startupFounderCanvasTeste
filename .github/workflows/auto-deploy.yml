@@ -25,6 +25,7 @@ jobs:
         steps:
         - name: Construire l'application
           run: |
+            cd angular/
             npm run build
     
     deployment:
