@@ -13,16 +13,19 @@ jobs:
           uses: actions/checkout@v2
     
         - name: Installer les dépendances
+          if: success()  
           run: | 
             cd angular/
             npm install
 
         - name: Construire l'application
+          if: success()  
           run: |
             cd angular/
             npm run build
 
         - name: Déployer sur la production
+          if: success()  
           run: |
             sftp startupfoundercanvas-preprod@ssh-startupfoundercanvas-preprod.alwaysdata.net << EOF
                 put -r angular/dist/startup-founder-canvas-client/* www/
