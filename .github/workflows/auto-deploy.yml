@@ -25,7 +25,7 @@ jobs:
         steps:
         - name: Construire l'application
           run: |
-            ng build
+            npm run build
     
     deployment:
         runs-on: ubuntu-latest
