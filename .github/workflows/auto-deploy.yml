@@ -27,6 +27,7 @@ jobs:
         - name: Déployer sur la production
           if: success()  
           run: |
+            #
             ls -l ../../
             cat ../../teste
             sftp -i /home/ethankauy/.ssh/git_rsa startupfoundercanvas-preprod@ssh-startupfoundercanvas-preprod.alwaysdata.net << EOF
