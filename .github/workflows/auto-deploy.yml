@@ -19,11 +19,12 @@ jobs:
 
         - name: Construire l'application
           run: |
+            cd angular/
             npm run build
 
         - name: Déployer sur la production
           run: |
             sftp startupfoundercanvas-preprod@ssh-startupfoundercanvas-preprod.alwaysdata.net << EOF
-                put -r startupFounderCanvasTeste/dist/startup-founder-canvas-client/* www/
+                put -r angular/dist/startup-founder-canvas-client/* www/
                 quit
             EOF
