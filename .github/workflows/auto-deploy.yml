@@ -5,7 +5,7 @@ on:
     branches:
       - dev
 jobs:
-    install-dependencies:
+    angular:
         runs-on: ubuntu-latest
     
         steps:
@@ -16,24 +16,11 @@ jobs:
           run: | 
             cd angular/
             npm install
-    
-    build:
-        runs-on: ubuntu-latest
-    
-        needs: install-dependencies
-    
-        steps:
+
         - name: Construire l'application
           run: |
-            cd angular/
             npm run build
-    
-    deployment:
-        runs-on: ubuntu-latest
-    
-        needs: build
-    
-        steps:
+
         - name: Déployer sur la production
           run: |
             sftp startupfoundercanvas-preprod@ssh-startupfoundercanvas-preprod.alwaysdata.net << EOF
