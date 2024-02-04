@@ -24,11 +24,17 @@ jobs:
             cd angular/
             npm run build
 
+        - name: Utiliser la clé privée
+          if: success()     
+          run: |
+            echo "$DEPLOY_KEY_PRIVE" > ~/id_rsa
+            chmod 600 ~/id_rsa
+
         - name: Déployer sur la production
           if: success()  
           run: |
             ls -l
-            sftp -i cle_prive startupfoundercanvas-preprod@ssh-startupfoundercanvas-preprod.alwaysdata.net << EOF
+            sftp -i id_rsa startupfoundercanvas-preprod@ssh-startupfoundercanvas-preprod.alwaysdata.net << EOF
               put -r angular/dist/startup-founder-canvas-client/* www/
               quit
             EOF
