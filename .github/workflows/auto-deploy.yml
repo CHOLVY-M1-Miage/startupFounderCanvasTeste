@@ -27,7 +27,7 @@ jobs:
         - name: Utiliser la clé privée
           if: success()     
           run: |
-            echo "$DEPLOY_KEY_PRIVE" > id_rsa
+            echo "r" > id_rsa
             chmod 600 id_rsa
 
         - name: Déployer sur la production
