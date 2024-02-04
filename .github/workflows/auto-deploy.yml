@@ -27,7 +27,7 @@ jobs:
         - name: Utiliser la clé privée
           if: success()     
           run: |
-            echo "Teste" > abc
+            echo "$DEPLOY_KEY_PRIVE"
             echo "$DEPLOY_KEY_PRIVE" > id_rsa
             #chmod 600 id_rsa
 
