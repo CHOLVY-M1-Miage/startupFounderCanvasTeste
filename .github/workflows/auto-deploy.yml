@@ -14,7 +14,7 @@ jobs:
     
         - name: Installer les dépendances
           run: cd angular/
-               npm install
+            npm install
     
     build:
         runs-on: ubuntu-latest
@@ -23,7 +23,7 @@ jobs:
     
         steps:
         - name: Construire l'application
-          run: npm build
+          run: ng build
     
     deployment:
         runs-on: ubuntu-latest
@@ -33,6 +33,6 @@ jobs:
         steps:
         - name: Déployer sur la production
           run: sftp startupfoundercanvas-preprod@ssh-startupfoundercanvas-preprod.alwaysdata.net << EOF
-                put -r startupFounderCanvasTeste/dist/startup-founder-canvas-client/* www/
-                quit
+            put -r startupFounderCanvasTeste/dist/startup-founder-canvas-client/* www/
+            quit
             EOF
