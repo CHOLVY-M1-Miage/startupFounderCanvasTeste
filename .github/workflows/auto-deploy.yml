@@ -28,7 +28,7 @@ jobs:
           if: success()     
           run: |
             echo "$DEPLOY_KEY_PRIVE" > id_rsa
-            chmod 600 ~/id_rsa
+            chmod 600 id_rsa
 
         - name: Déployer sur la production
           if: success()  
